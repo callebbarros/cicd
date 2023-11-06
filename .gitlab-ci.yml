@@ -1,0 +1,31 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  image: python:3
+  script:
+    - python -m venv venv
+    - source venv/bin/activate
+    - echo "Estou aqui de propósito"
+    - python app.py
+  
+test:
+  stage: test
+  image: python:3
+  script:
+    - python -m venv venv
+    - source venv/bin/activate
+    - echo "3, 2, 1... Testando cenário de teste"
+    - python test.py
+
+deploy:
+  stage: deploy
+  image: python:3
+  script:
+    - python -m venv venv
+    - source venv/bin/activate
+    - echo "3, 2, 1... Testando cenário de deploy"
+    - python deploy.py
